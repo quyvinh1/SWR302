@@ -1,0 +1,48 @@
+
+<!DOCTYPE html><link rel="stylesheet" href="css/register.css"> 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="css/register.css"> 
+    </head>
+    <body>
+        <h2>Create Account</h2>
+        <div class="container" id="container">
+            <div  class="form-container sign-in-container">  <!-- dang nhap -->
+                <form action="RegisterCustomerController" method="post">
+                    <label class="form-lb" for="user">UserName</label>
+                    <input type="text" placeholder="Account" name="user" required="true" id="user"/>
+                    <label class="form-lb" for="password">Password</label>  
+                    <input type="password" name="pass" placeholder="Password" required="true" id="password"/>
+                    <label class="form-lb" for="re-pass">Confirm Password</label>
+                    <input type="password" name="repass" placeholder="Re-password" required="true" id="re-pass"/>
+                    <label class="form-lb" for="email">Email</label>
+                    <input type="email" name="email" placeholder="Email" required="true" id="email" />
+                    <button type="submit">Sign Up</button> 
+
+                    
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Created with <i class="fa fa-heart"></i> by
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100006695251254">Nhật Minh</a>
+                - Read how I created this and how you can join the challenge
+                <a target="_blank" href="https://www.facebook.com/tien.ta.311">here</a>.
+            </p>
+        </footer>
+
+        <script type="text/javascript">
+            const signUpButton = document.getElementById('signUp');
+            const signInButton = document.getElementById('signIn');
+            const container = document.getElementById('container');
+
+            signUpButton.addEventListener('click', () => {
+                container.classList.add("right-panel-active");
+            });
+        </script>
+    </body>
+</html>
