@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Danh sách sản phẩm</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Main CSS-->
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <!-- or -->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+      
+        <!-- Font-icon css-->
+        <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <style>
+            .app1{
+                min-height: calc(100vh - 50px);
+                padding: 10px;
+
+                background-color: #f5f5f5;
+                -webkit-transition: margin-left 0.3s ease;
+                -o-transition: margin-left 0.3s ease;
+                transition: margin-left 0.3s ease;
+            }
+        </style>
+      </head>
+
+<body onload="time()" class="app1 sidebar-mini rtl">
+   <!-- Navbar-->
+   
+
+
+      <!-- User Menu-->
+      
+  <!-- Sidebar menu-->
+  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+  
+    <main class="app-content1">
+        <div class="app-title">
+            <ul class="app-breadcrumb breadcrumb side">
+                <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+            </ul>
+            <div id="clock"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="row element-button">
+                            <div class="col-sm-2">
+              
+                              <a class="btn btn-add btn-sm" href="AddNewProduct.html" title="Thêm"><i class="fas fa-plus"></i>
+                                Add new product</a>
+                            </div>
+                            
+                          </div>
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                            <thead>
+                                <tr>
+                                    
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Image</th>
+                                    <th>Sold Quantity</th>
+                                    <th>Stock Quantity</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <td>71309005</td>
+                                    <td>Iphone 13</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/1/2/12_3_8_2_8.jpg" alt="" width="100px;"></td>
+                                    <td>12</td>
+                                    <td><span class="badge bg-success">50</span></td>
+                                    <td>Mobile</td>
+                                    <td>14.790.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> 
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>61304005</td>
+                                    <td>Samsung Galaxy S24</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/s/ss-s24-ultra-den-600.png" alt="" width="100px;"></td>
+                                    <td>10</td>
+                                    <td><span class="badge bg-success">20</span></td>
+                                    <td>Mobile</td>
+                                    <td>33.990.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>62304003</td>
+                                    <td>Laptop Lenovo Yoga Duet 7 13ITL6 82MA009NVN</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/g/a/gaming_003_3__3.png" alt="" width="100px;"></td>
+                                    <td>14</td>
+                                     <td><span class="badge bg-success">18</span></td>
+                                    <td>Laptop</td>
+                                    <td>18.990.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>72638003</td>
+                                    <td>iMac M3 24 inch 8GB 256GB 8GPU</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/v/n/vn_imac_m3_2-ports_blue_pdp_image_position-1.jpg" alt="" width="100px;"></td>
+                                    <td>8</td>
+                                     <td><span class="badge bg-success">12</span></td>
+                                    <td>Laptop</td>
+                                    <td>35.990.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>72109004</td>
+                                    <td>Xiaomi Redmi Note 13 Pro</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/x/i/xiaomi-redmi-note-13-pro-plus_9_.png" alt="" width="100px;"></td>
+                                    <td>5</td>
+                                     <td><span class="badge bg-success">14</span></td>
+                                    <td>Mobile</td>
+                                    <td>10.690.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>82716001</td>
+                                    <td>Samsung Galaxy Tab S9 Ultra</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung-galaxy-tab-s9-ultra_2_2.png" alt="" width="100px;"></td>
+                                    <td>12</td>
+                                     <td><span class="badge bg-success">20</span></td>
+                                    <td>Tablet</td>
+                                    <td>26.290.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>72109001</td>
+                                    <td>iPad Air 5</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/5/_/5_158_3.jpg" alt="" width="100px;"></td>
+                                    <td>7</td>
+                                     <td><span class="badge bg-success">15</span></td>
+                                    <td>Tablet</td>
+                                    <td>14.190.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                    
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>71304041</td>
+                                    <td>Apple AirPods Pro 2 2023</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/a/p/apple-airpods-pro-2-usb-c_8_.png" alt="" width="100px;"></td>
+                                    <td>5</td>
+                                     <td><span class="badge bg-success">14</span></td>
+                                    <td>Headphone</td>
+                                    <td>5.890.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>71304037</td>
+                                    <td>Apple Watch Series 9 41mm</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/v/n/vn_apple_watch_series_9_gps_41mm_midnight_aluminum_midnight_sport_band_pdp_image_position-1.jpg" alt="" width="100px;"></td>
+                                    <td>15</td>
+                                     <td><span class="badge bg-success">15</span></td>
+                                    <td>Watch</td>
+                                    <td>9.590.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                   
+                                    <td>71304032</td>
+                                    <td>Xiaomi Redmi Watch 4</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/t/e/text_ng_n_25__1_9.png" alt="" width="100px;"></td>
+                                    <td>10</td>
+                                     <td><span class="badge bg-success">11</span></td>
+                                    <td>Watch</td>
+                                    <td>2.690.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>71338008</td>
+                                    <td>Apple Macbook Air M2 2022</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/1/_/1_74_10_2.png" alt="" width="100px;"></td>
+                                    <td>12</td>
+                                     <td><span class="badge bg-success">19</span></td>
+                                    <td>Laptop</td>
+                                    <td>31.190.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                   
+                                    <td>83826226</td>
+                                    <td>iPhone 14 Pro Max </td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/i/p/iphone-14-pro_2__5.png" alt="" width="100px;"></td>
+                                    <td>10</td>
+                                    <td><span class="badge bg-danger">20</span></td>
+                                    <td>Mobile</td>
+                                    <td>27.390.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>83252001</td>
+                                    <td>Samsung Galaxy Z Flip5</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/s/a/samsung-galaxy-z-flip5-tim-4_2.jpg" alt="" width="100px;"></td>
+                                    <td>12</td>
+                                     <td><span class="badge bg-success">23</span></td>
+                                    <td>Mobile</td>
+                                    <td>25.990.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                      
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>83252002</td>
+                                    <td>Tai nghe Bluetooth chụp tai Sony WH-CH520</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/t/a/tai-nghe-chup-tai-sony-wh-ch520-10.png" alt="" width="100px;"></td>
+                                    <td>9</td>
+                                     <td><span class="badge bg-success">15</span></td>
+                                    <td>Headphone</td>
+                                    <td>1.090.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                       
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>83216008</td>
+                                    <td>Laptop Lenovo Yoga Slim 7 14ACN6 82N7008VVN</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/4/0/40_1_38.jpg" alt="" width="100px;"></td>
+                                    <td>10</td>
+                                     <td><span class="badge bg-success">23</span></td>
+                                    <td>Laptop</td>
+                                    <td>15.990.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>83216006</td>
+                                    <td>Huawei Watch GT4 dây da</td>
+                                    <td><img src="https://cdn2.cellphones.com.vn/x/media/catalog/product/t/e/text_ng_n_-_2023-09-27t165911.227.png" alt="" width="100px;"></td>
+                                    <td>12</td>
+                                     <td><span class="badge bg-success">16</span></td>
+                                    <td>Watch</td>
+                                    <td>5.490.000 đ</td>
+                                    <td><button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
+                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        <a href="UpdateProduct.html" class="btn btn-success">Edit</a>
+                                   
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<!--
+  MODAL
+-->
+<div class="modal fade" id="ModalUP" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static"
+data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+
+    <div class="modal-body">
+      <div class="row">
+        <div class="form-group  col-md-12">
+          <span class="thong-tin-thanh-toan">
+            <h5>Chỉnh sửa thông tin sản phẩm cơ bản</h5>
+          </span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+            <label class="control-label">Mã sản phẩm </label>
+            <input class="form-control" type="number" value="71309005">
+          </div>
+        <div class="form-group col-md-6">
+            <label class="control-label">Tên sản phẩm</label>
+          <input class="form-control" type="text" required value="Bàn ăn gỗ Theresa">
+        </div>
+        <div class="form-group  col-md-6">
+            <label class="control-label">Số lượng</label>
+          <input class="form-control" type="number" required value="20">
+        </div>
+        <div class="form-group col-md-6 ">
+            <label for="exampleSelect1" class="control-label">Tình trạng sản phẩm</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>Còn hàng</option>
+              <option>Hết hàng</option>
+              <option>Đang nhập hàng</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label class="control-label">Giá bán</label>
+            <input class="form-control" type="text" value="5.600.000">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleSelect1" class="control-label">Danh mục</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>Bàn ăn</option>
+              <option>Bàn thông minh</option>
+              <option>Tủ</option>
+              <option>Ghế gỗ</option>
+              <option>Ghế sắt</option>
+              <option>Giường người lớn</option>
+              <option>Giường trẻ em</option>
+              <option>Bàn trang điểm</option>
+              <option>Giá đỡ</option>
+            </select>
+          </div>
+      </div>
+      <BR>
+      <a href="#" style="    float: right;
+    font-weight: 600;
+    color: #ea0000;">Chỉnh sửa sản phẩm nâng cao</a>
+      <BR>
+      <BR>
+      <button class="btn btn-save" type="button">Lưu lại</button>
+      <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
+      <BR>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+</div>
+<!--
+MODAL
+-->
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="src/jquery.table2excel.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('#sampleTable').DataTable();
+        //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+    </script>
+    <script>
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("myTable").deleteRow(i);
+        }
+        jQuery(function () {
+            jQuery(".trash").click(function () {
+                swal({
+                    title: "Cảnh báo",
+                    text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+                    buttons: ["Hủy bỏ", "Đồng ý"],
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal("Đã xóa thành công.!", {
+
+                            });
+                        }
+                    });
+            });
+        });
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+    </script>
+</body>
+
+</html>
