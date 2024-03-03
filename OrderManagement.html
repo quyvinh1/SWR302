@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Seller Order Management</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css2/main1.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <style>
+        .edit {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit:hover {
+            background-color: #218838;
+            /* Darker color on hover */
+        }
+
+        /* Style the delete button */
+        .trash {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .trash:hover {
+            background-color: #c82333;
+            /* Darker color on hover */
+        }
+
+        .app-content-1 {
+            margin-top: 10px;
+        }
+
+        .app-title1 {
+            display: block;
+            background-color: #FFF;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+            border-radius: .375rem;
+            -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+            box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+            border-left: 6px solid #FFD43B;
+        }
+
+        .app-title2 {
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        /*----------------------------*\
+                    Main nav
+            \*----------------------------*/
+        .container1 {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+
+        }
+
+        .navbar-nav-1 {
+            margin: 7.5px -15px;
+        }
+
+        .navbar-nav-1>li>a {
+            display: flex;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 20px;
+        }
+
+        .navbar-nav-1 a {
+            text-decoration: none;
+        }
+
+        .main-nav>li+li {
+            margin-left: 30px;
+        }
+
+        .main-nav>li>a {
+            padding: 20px 0px;
+        }
+
+        .main-nav>li>a:hover,
+        .main-nav>li>a:focus,
+        .main-nav>li.active>a {
+            color: #FFD43B;
+            background-color: transparent;
+        }
+
+        .main-nav>li>a:after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 2px;
+            background-color: #FFD43B;
+            -webkit-transition: 0.2s all;
+            transition: 0.2s all;
+        }
+
+        .main-nav>li>a:hover:after,
+        .main-nav>li>a:focus:after,
+        .main-nav>li.active>a:after {
+            width: 100%;
+        }
+
+        .header-ctn li.nav-toggle {
+            display: none;
+        }
+
+        .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        .nav>li {
+            position: relative;
+            display: block;
+        }
+
+        .nav>li>a {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+        }
+
+        .bg-delivery {
+            background-color: #FFD43B !important;
+            color: #FFF !important;
+        }
+        .store-pagination {
+  float: right;
+}
+
+.store-pagination li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #FFF;
+  border: 1px solid #E4E7ED;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.store-pagination li+li {
+  margin-left: 5px;
+}
+
+.store-pagination li:hover {
+  background-color: #E4E7ED;
+  color: #D10024;
+}
+
+.store-pagination li.active {
+  background-color: #D10024;
+  border-color: #D10024;
+  color: #FFF;
+  font-weight: 500;
+  cursor: default;
+}
+
+.store-pagination li a {
+  display: block;
+}
+.store-pagination li a.active{
+    background-color: red;
+    color: white;
+}
+.store-qty {
+  margin-right: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+    </style>
+</head>
+
+<body onload="time()" class="app sidebar-mini rtl">
+
+
+    <main class="app-content-1">
+        <div class="app-title1">
+            <div class="app-title2">
+
+                <ul class="app-breadcrumb breadcrumb side">
+                    <li class="breadcrumb-item active"><a href="#"><b>Order Management</b></a></li>
+                </ul>
+                <div>
+                    <form action="searchOrder" method="post">
+                        <input type="text" name="input" />
+                        <input type="submit" value="Search" />
+                        <input type="hidden" name="sid" value="${sid}" />
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="row element-button">
+
+
+
+
+                        </div>
+                        <table class="table table-hover table-bordered" id="sampleTable">
+                            <thead>
+                                
+                                <tr>
+
+                                    <th>Involce</th>
+                                    <th>Order No</th>
+                                    <th>Customer Name</th>
+                                    <th>Total Price</th>
+                                    <th>Status</th>
+                                    <th>Involce Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+
+                                        <td>INV-001</td>
+                                        <td>SO-001</td>
+                                        <td>Pham Binh Nguyen</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Paid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-002</td>
+                                        <td>SO-002</td>
+                                        <td>Nguyen Nhat Minh</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Paid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-003</td>
+                                        <td>SO-003</td>
+                                        <td>John Stone</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Paid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-004</td>
+                                        <td>SO-004</td>
+                                        <td>Harry Maguire</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                UnPaid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-005</td>
+                                        <td>SO-005</td>
+                                        <td>Lionel Messi</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                UnPaid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-006</td>
+                                        <td>SO-006</td>
+                                        <td>Cristiano Ronaldo</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-success">
+                                                Paid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-007</td>
+                                        <td>SO-007</td>
+                                        <td>Nguyen Minh Quan</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                UnPaid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>INV-008</td>
+                                        <td>SO-008</td>
+                                        <td>Pham Thoai</td>
+                                        <td>3,450,000 VND</td>
+                                        <td>
+                                            <span class="badge bg-danger">
+                                                UnPaid
+                                            </span>
+                                        </td>
+
+                                        <td>30-01-2024</td>
+                                        <td class="action-button"><button>Edit</button></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        <ul class="store-pagination">
+                            
+                                <li><a class="active" href="">1</a></li>
+                                <li><a class="" href="">></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!--
+          MODAL
+        -->
+
+
+    <!--
+        MODAL
+        -->
+
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="src/jquery.table2excel.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+
+</body>
+
+</html>
